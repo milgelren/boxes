@@ -57,12 +57,8 @@
       "guest_os_type": "Ubuntu_64",
       "headless": false,
       "http_directory": "http",
-      "iso_urls": [
-        "iso/focal-legacy-server-amd64.iso",
-        "http://cdimage.ubuntu.com/ubuntu-legacy-server/releases/20.04/release/ubuntu-20.04-legacy-server-amd64.iso"
-      ],
-      "iso_checksum_type": "sha256",
-      "iso_checksum": "36f15879bd9dfd061cd588620a164a82972663fdd148cce1f70d57d314c21b73",
+      "iso_urls": "http://releases.ubuntu.com/20.04/ubuntu-20.04.6-live-server-amd64.iso",
+      "iso_checksum": "sha256:b8f31413336b9393ad5d8ef0282717b2ab19f007df2e9ed5196c13d8f9153c8b",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -76,7 +72,7 @@
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "1024"
+          "128"
         ],
         [
           "modifyvm",
@@ -86,18 +82,5 @@
         ]
       ]
     }
-  ],
-  "post-processors": [
-    [
-      {
-        "output": "builds/{{.Provider}}-ubuntu2004.box",
-        "type": "vagrant"
-      },
-      {
-        "type": "vagrant-cloud",
-        "box_tag": "geerlingguy/ubuntu2004",
-        "version": "{{user `version`}}"
-      }
-    ]
   ]
 }
